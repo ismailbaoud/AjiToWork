@@ -1,13 +1,20 @@
-import { inject } from '@angular/core';
-import { CanActivateFn, Router } from '@angular/router';
-import { AuthService } from '../../features/auth/services/auth.service';
+import { inject } from "@angular/core";
+import { CanActivateFn, Router } from "@angular/router";
+import { AuthService } from "../../features/auth/services/auth.service";
+import { ROUTES } from "../constants/routes";
 
+/**
+ * Guest guard to protect auth routes from authenticated users
+ * Redirects to home page if user is already authenticated
+ */
 export const guestGuard: CanActivateFn = (route, state) => {
-  const service = inject(AuthService);
+  const authService = inject(AuthService);
   const router = inject(Router);
-  if(service.isLoged()) {
-    router.navigate(['/'])
+
+  if (authService.isLoggedIn()) {
+    router.navigate([ROUTES.HOME]);
     return false;
   }
+
   return true;
 };
