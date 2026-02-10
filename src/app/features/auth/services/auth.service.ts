@@ -1,7 +1,7 @@
 import { HttpClient, HttpParams } from "@angular/common/http";
 import { Injectable, signal } from "@angular/core";
-import { Observable, throwError, BehaviorSubject, of } from "rxjs";
-import { catchError, map, tap } from "rxjs/operators";
+import { Observable, throwError, BehaviorSubject, of, from } from "rxjs";
+import { catchError, map, tap, switchMap } from "rxjs/operators";
 import {
   User,
   UserLogin,
@@ -11,6 +11,7 @@ import {
 import { environment } from "../../../../environments/environment";
 import { STORAGE_KEYS } from "../../../core/constants/storage-keys";
 import { StorageService } from "../../../core/services/storage.service";
+import { PasswordService } from "../../../core/services/password.service";
 
 /**
  * Authentication service for managing user authentication state
@@ -32,6 +33,7 @@ export class AuthService {
   constructor(
     private http: HttpClient,
     private storageService: StorageService,
+    private passwordService: PasswordService,
   ) {
     this.initializeAuthState();
   }
@@ -54,21 +56,27 @@ export class AuthService {
   }
 
   /**
-   * Register a new user
+   * Register a new user with hashed password
    * @param userRegistration User registration data
    * @returns Observable of created user
    */
   register(userRegistration: UserRegistration): Observable<User> {
     this.isLoading.set(true);
 
-    const user: Omit<User, "id"> = {
-      firstName: userRegistration.firstName,
-      lastName: userRegistration.lastName,
-      email: userRegistration.email,
-      password: userRegistration.password,
-    };
+    // Hash password before sending to server
+    return from(
+      this.passwordService.hashPassword(userRegistration.password),
+    ).pipe(
+      switchMap((hashedPassword) => {
+        const user: Omit<User, "id"> = {
+          firstName: userRegistration.firstName,
+          lastName: userRegistration.lastName,
+          email: userRegistration.email,
+          password: hashedPassword,
+        };
 
-    return this.http.post<User>(this.baseUrl, user).pipe(
+        return this.http.post<User>(this.baseUrl, user);
+      }),
       tap(() => this.isLoading.set(false)),
       catchError((error) => {
         this.isLoading.set(false);
@@ -78,7 +86,7 @@ export class AuthService {
   }
 
   /**
-   * Login user with credentials
+   * Login user with credentials and verify hashed password
    * @param credentials User login credentials
    * @returns Observable of authenticated user
    */
@@ -88,14 +96,20 @@ export class AuthService {
     const params = new HttpParams().set("email", credentials.email);
 
     return this.http.get<User[]>(this.baseUrl, { params }).pipe(
-      map((users) => {
+      switchMap(async (users) => {
         if (!users || users.length === 0) {
           throw new Error("User not found");
         }
 
         const user = users[0];
 
-        if (user.password !== credentials.password) {
+        // Verify password using bcrypt
+        const isPasswordValid = await this.passwordService.verifyPassword(
+          credentials.password,
+          user.password,
+        );
+
+        if (!isPasswordValid) {
           throw new Error("Invalid password");
         }
 
