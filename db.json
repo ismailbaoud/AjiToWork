@@ -1,0 +1,82 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "firstName": "ismail",
+      "lastName": "baoud",
+      "email": "baoud@gmail.com",
+      "password": "password1234"
+    },
+    {
+      "id": "becf",
+      "firstName": "Nissim",
+      "lastName": "Bates",
+      "email": "gynu@mailinator.com",
+      "password": "Pa$$w0rd!"
+    },
+    {
+      "id": "9bfe",
+      "firstName": "Knox",
+      "lastName": "Wilson",
+      "email": "qewopo@mailinator.com",
+      "password": "Pa$$w0rd!",
+      "confirmPassword": "Pa$$w0rd!"
+    },
+    {
+      "id": "60e1",
+      "firstName": "Knox",
+      "lastName": "Wilson",
+      "email": "qewopo@mailinator.com",
+      "password": "Pa$$w0rd!",
+      "confirmPassword": "Pa$$w0rd!"
+    },
+    {
+      "id": "49eb",
+      "firstName": "Summer",
+      "lastName": "Joyce",
+      "email": "necomyvepy@mailinator.com",
+      "password": "Pa$$w0rd!",
+      "confirmPassword": "Pa$$w0rd!"
+    },
+    {
+      "id": "8147",
+      "firstName": "Kai",
+      "lastName": "Barrett",
+      "email": "mynedoron@mailinator.com",
+      "password": "Pa$$w0rd!",
+      "confirmPassword": "Pa$$w0rd!"
+    },
+    {
+      "id": "07e2",
+      "firstName": "Palmer",
+      "lastName": "Juarez",
+      "email": "katoro@mailinator.com",
+      "password": "Pa$$w0rd!",
+      "confirmPassword": "Pa$$w0rd!"
+    },
+    {
+      "id": "c47e",
+      "firstName": "Vincent",
+      "lastName": "Copeland",
+      "email": "katoro@mailinator.com",
+      "password": "Pa$$w0rd!",
+      "confirmPassword": "Pa$$w0rd!"
+    },
+    {
+      "id": "dbfb",
+      "firstName": "Melyssa",
+      "lastName": "Yang",
+      "email": "gyfucy@mailinator.com",
+      "password": "Pa$$w0rd!",
+      "confirmPassword": "Pa$$w0rd!"
+    },
+    {
+      "id": "6455",
+      "firstName": "Tallulah",
+      "lastName": "Rollins",
+      "email": "kuzojyge@mailinator.com",
+      "password": "Pa$$w0rd!",
+      "confirmPassword": "Pa$$w0rd!"
+    }
+  ]
+}
