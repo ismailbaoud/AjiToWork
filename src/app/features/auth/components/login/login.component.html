@@ -1,11 +1,23 @@
 <!-- login.component.html - Light Mode -->
-<header class="sticky top-0 z-50 flex items-center justify-between border-b border-slate-200 bg-white px-6 md:px-12 py-4 shadow-sm">
+<header
+  class="sticky top-0 z-50 flex items-center justify-between border-b border-slate-200 bg-white px-6 md:px-12 py-4 shadow-sm"
+>
   <div class="flex items-center gap-3">
-    <div class="size-8 rounded-lg bg-blue-50 p-1 flex items-center justify-center">
-      <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" class="size-6 text-blue-600">
-        <path clip-rule="evenodd"
-              d="M12.0799 24L4 19.2479L9.95537 8.75216L18.04 13.4961L18.0446 4H29.9554L29.96 13.4961L38.0446 8.75216L44 19.2479L35.92 24L44 28.7521L38.0446 39.2479L29.96 34.5039L29.9554 44H18.0446L18.04 34.5039L9.95537 39.2479L4 28.7521L12.0799 24Z"
-              fill="currentColor" fill-rule="evenodd"></path>
+    <div
+      class="size-8 rounded-lg bg-blue-50 p-1 flex items-center justify-center"
+    >
+      <svg
+        fill="none"
+        viewBox="0 0 48 48"
+        xmlns="http://www.w3.org/2000/svg"
+        class="size-6 text-blue-600"
+      >
+        <path
+          clip-rule="evenodd"
+          d="M12.0799 24L4 19.2479L9.95537 8.75216L18.04 13.4961L18.0446 4H29.9554L29.96 13.4961L38.0446 8.75216L44 19.2479L35.92 24L44 28.7521L38.0446 39.2479L29.96 34.5039L29.9554 44H18.0446L18.04 34.5039L9.95537 39.2479L4 28.7521L12.0799 24Z"
+          fill="currentColor"
+          fill-rule="evenodd"
+        ></path>
       </svg>
     </div>
     <h2 class="text-slate-900 text-2xl font-bold tracking-tight">JobFinder</h2>
@@ -13,39 +25,61 @@
 
   <div class="flex items-center gap-8">
     <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
-      <a class="text-slate-600 hover:text-blue-600 transition-colors" href="#">Find Jobs</a>
-      <a class="text-slate-600 hover:text-blue-600 transition-colors" href="#">Companies</a>
-      <a class="text-slate-600 hover:text-blue-600 transition-colors" href="#">Salaries</a>
+      <a class="text-slate-600 hover:text-blue-600 transition-colors" href="#"
+        >Find Jobs</a
+      >
+      <a class="text-slate-600 hover:text-blue-600 transition-colors" href="#"
+        >Companies</a
+      >
+      <a class="text-slate-600 hover:text-blue-600 transition-colors" href="#"
+        >Salaries</a
+      >
     </nav>
-    <button class="rounded-lg px-5 py-2 bg-blue-50 text-blue-600 font-semibold text-sm hover:bg-blue-100 transition-all">
+    <button
+      class="rounded-lg px-5 py-2 bg-blue-50 text-blue-600 font-semibold text-sm hover:bg-blue-100 transition-all"
+    >
       Help Center
     </button>
   </div>
 </header>
 
-<main class="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 to-white px-4 py-16">
+<main
+  class="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 to-white px-4 py-16"
+>
   <div class="w-full max-w-lg space-y-10">
     <div class="bg-white rounded-2xl shadow-xl border border-slate-200 p-10">
       <div class="text-center mb-10">
-        <h1 class="text-3xl md:text-4xl font-bold text-slate-900 mb-3">Welcome back</h1>
-        <p class="text-slate-500 text-base">Sign in to continue your job search journey</p>
+        <h1 class="text-3xl md:text-4xl font-bold text-slate-900 mb-3">
+          Welcome back
+        </h1>
+        <p class="text-slate-500 text-base">
+          Sign in to continue your job search journey
+        </p>
       </div>
 
       <!-- Login / Signup Toggle -->
       <div class="flex rounded-xl bg-slate-100 p-1 mb-10">
-        <button class="flex-1 py-3 px-6 rounded-lg text-sm font-semibold bg-white text-slate-900 shadow-md transition-all">
+        <button
+          class="flex-1 py-3 px-6 rounded-lg text-sm font-semibold bg-white text-slate-900 shadow-md transition-all"
+        >
           Login
         </button>
-        <button (click)="registerRedirect($event)" class="flex-1 py-3 px-6 rounded-lg text-sm font-semibold text-slate-600 hover:bg-white transition-all">
+        <button
+          (click)="navigateToRegister($event)"
+          class="flex-1 py-3 px-6 rounded-lg text-sm font-semibold text-slate-600 hover:bg-white transition-all"
+        >
           Sign Up
         </button>
       </div>
 
       <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="space-y-6">
-
         <!-- Email -->
         <div>
-          <label class="block text-sm font-medium text-slate-700 mb-2" for="email">Email Address</label>
+          <label
+            class="block text-sm font-medium text-slate-700 mb-2"
+            for="email"
+            >Email Address</label
+          >
           <div class="relative">
             <input
               class="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white text-slate-900 placeholder-slate-400 focus:ring-2 focus:ring-blue-100 focus:border-blue-500 outline-none transition-all"
@@ -53,39 +87,76 @@
               placeholder="name@company.com"
               type="email"
               formControlName="email"
-              autocomplete="email"/>
-            <span class="absolute inset-y-0 right-4 flex items-center text-slate-400 pointer-events-none">
+              autocomplete="email"
+            />
+            <span
+              class="absolute inset-y-0 right-4 flex items-center text-slate-400 pointer-events-none"
+            >
               <span class="material-symbols-outlined text-xl">mail</span>
             </span>
           </div>
-          @if (loginForm.get('email')?.touched && loginForm.get('email')?.hasError('required')) {
-            <p class="text-red-600 text-sm mt-2">Email is required</p>
+          @if (hasError("email", "required")) {
+            <p class="text-red-600 text-sm mt-2">
+              {{ getErrorMessage("email") }}
+            </p>
           }
-          @if (loginForm.get('email')?.touched && loginForm.get('email')?.hasError('email')) {
-            <p class="text-red-600 text-sm mt-2">Please enter a valid email</p>
+          @if (hasError("email", "email")) {
+            <p class="text-red-600 text-sm mt-2">
+              {{ getErrorMessage("email") }}
+            </p>
+          }
+          @if (hasError("email", "notFound")) {
+            <p class="text-red-600 text-sm mt-2">
+              {{ getErrorMessage("email") }}
+            </p>
           }
         </div>
 
         <!-- Password -->
         <div>
           <div class="flex items-center justify-between mb-2">
-            <label class="block text-sm font-medium text-slate-700" for="password">Password</label>
-            <a href="#" class="text-sm text-blue-600 hover:underline">Forgot password?</a>
+            <label
+              class="block text-sm font-medium text-slate-700"
+              for="password"
+              >Password</label
+            >
+            <a href="#" class="text-sm text-blue-600 hover:underline"
+              >Forgot password?</a
+            >
           </div>
           <div class="relative">
             <input
               class="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white text-slate-900 placeholder-slate-400 focus:ring-2 focus:ring-blue-100 focus:border-blue-500 outline-none transition-all"
               id="password"
-              [type]="showPassword ? 'text' : 'password'"
+              [type]="showPassword() ? 'text' : 'password'"
               placeholder="••••••••"
               formControlName="password"
-              autocomplete="current-password"/>
-            <button type="button" (click)="togglePasswordVisibility()" class="absolute inset-y-0 right-4 flex items-center text-slate-400 hover:text-slate-600 transition-colors">
-              <span class="material-symbols-outlined text-xl">{{ showPassword ? 'visibility_off' : 'visibility' }}</span>
+              autocomplete="current-password"
+            />
+            <button
+              type="button"
+              (click)="togglePasswordVisibility()"
+              class="absolute inset-y-0 right-4 flex items-center text-slate-400 hover:text-slate-600 transition-colors"
+            >
+              <span class="material-symbols-outlined text-xl">{{
+                showPassword() ? "visibility_off" : "visibility"
+              }}</span>
             </button>
           </div>
-          @if (loginForm.get('password')?.touched && loginForm.get('password')?.hasError('required')) {
-            <p class="text-red-600 text-sm mt-2">Password is required</p>
+          @if (hasError("password", "required")) {
+            <p class="text-red-600 text-sm mt-2">
+              {{ getErrorMessage("password") }}
+            </p>
+          }
+          @if (hasError("password", "minLength")) {
+            <p class="text-red-600 text-sm mt-2">
+              {{ getErrorMessage("password") }}
+            </p>
+          }
+          @if (hasError("password", "invalid")) {
+            <p class="text-red-600 text-sm mt-2">
+              {{ getErrorMessage("password") }}
+            </p>
           }
         </div>
 
@@ -95,19 +166,25 @@
             <input
               class="h-5 w-5 text-blue-600 border-slate-300 rounded focus:ring-blue-500"
               id="remember"
-              type="checkbox"/>
-            <label class="text-sm text-slate-600" for="remember">Remember me</label>
+              type="checkbox"
+            />
+            <label class="text-sm text-slate-600" for="remember"
+              >Remember me</label
+            >
           </div>
         </div>
 
         <!-- Submit Button -->
         <button
-          class="w-full py-4 px-6 rounded-xl bg-blue-600 text-white font-semibold text-lg hover:bg-blue-700 focus:ring-4 focus:ring-blue-100 transition-all shadow-md"
+          class="w-full py-4 px-6 rounded-xl bg-blue-600 text-white font-semibold text-lg hover:bg-blue-700 focus:ring-4 focus:ring-blue-100 transition-all shadow-md disabled:opacity-50 disabled:cursor-not-allowed"
           type="submit"
-          [disabled]="loginForm.invalid || isLoading">
-          @if (isLoading) {
+          [disabled]="loginForm.invalid || isLoading()"
+        >
+          @if (isLoading()) {
             <span class="flex items-center justify-center">
-              <span class="material-symbols-outlined animate-spin mr-2">refresh</span>
+              <span class="material-symbols-outlined animate-spin mr-2"
+                >refresh</span
+              >
               Signing in...
             </span>
           } @else {
@@ -115,16 +192,22 @@
           }
         </button>
       </form>
-      </div>
+    </div>
   </div>
 </main>
 
 <footer class="py-10 px-6 text-center bg-white border-t border-slate-200">
-  <div class="flex flex-col md:flex-row justify-center items-center gap-6 text-sm text-slate-500">
+  <div
+    class="flex flex-col md:flex-row justify-center items-center gap-6 text-sm text-slate-500"
+  >
     <span>© 2024 JobFinder Inc. All rights reserved.</span>
     <div class="flex gap-6">
-      <a class="hover:text-blue-600 transition-colors" href="#">Privacy Policy</a>
-      <a class="hover:text-blue-600 transition-colors" href="#">Terms of Service</a>
+      <a class="hover:text-blue-600 transition-colors" href="#"
+        >Privacy Policy</a
+      >
+      <a class="hover:text-blue-600 transition-colors" href="#"
+        >Terms of Service</a
+      >
       <a class="hover:text-blue-600 transition-colors" href="#">Cookies</a>
     </div>
   </div>
