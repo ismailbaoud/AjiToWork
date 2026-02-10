@@ -5,21 +5,21 @@
       "firstName": "ismail",
       "lastName": "baoud",
       "email": "baoud@gmail.com",
-      "password": "password1234"
+      "password": "$2b$10$iRaSKNaHJMokGrrEUPhU6eYePlqSkctSN5rF5tb2e0rCX7JEQ5kru"
     },
     {
       "id": "becf",
       "firstName": "Nissim",
       "lastName": "Bates",
       "email": "gynu@mailinator.com",
-      "password": "Pa$$w0rd!"
+      "password": "$2b$10$poRVfrcu19OM6cRuUnhJ/emh1V.SV9gx06rhtuJUN/xE6Xf4ci7Cq"
     },
     {
       "id": "9bfe",
       "firstName": "Knox",
       "lastName": "Wilson",
       "email": "qewopo@mailinator.com",
-      "password": "Pa$$w0rd!",
+      "password": "$2b$10$q/dVjeUy3tfIZaeDNY3FLuKnJ3siQNtGFQ7Vq4eiSQCP0S4yIVfPC",
       "confirmPassword": "Pa$$w0rd!"
     },
     {
@@ -27,7 +27,7 @@
       "firstName": "Knox",
       "lastName": "Wilson",
       "email": "qewopo@mailinator.com",
-      "password": "Pa$$w0rd!",
+      "password": "$2b$10$LxkXMDT/5YuntkPQiaBOTO5xgMYIUyK8AfHG1CgSrlp.bJ0WFsfxS",
       "confirmPassword": "Pa$$w0rd!"
     },
     {
@@ -35,7 +35,7 @@
       "firstName": "Summer",
       "lastName": "Joyce",
       "email": "necomyvepy@mailinator.com",
-      "password": "Pa$$w0rd!",
+      "password": "$2b$10$NUHN3vp2wIhxDRzbxMBXJe9Es576KfA0fKRdRv/5NNa0PVoGHk4Gq",
       "confirmPassword": "Pa$$w0rd!"
     },
     {
@@ -43,7 +43,7 @@
       "firstName": "Kai",
       "lastName": "Barrett",
       "email": "mynedoron@mailinator.com",
-      "password": "Pa$$w0rd!",
+      "password": "$2b$10$GwvE4MtZrSsjssBnZf5waeDUV3IhzkU9JopZbuQQuHZS4a1Gn4OUq",
       "confirmPassword": "Pa$$w0rd!"
     },
     {
@@ -51,7 +51,7 @@
       "firstName": "Palmer",
       "lastName": "Juarez",
       "email": "katoro@mailinator.com",
-      "password": "Pa$$w0rd!",
+      "password": "$2b$10$aFF8ttX.TovpnBa0BrZZhORkp4A4mwyOkyyRdvpjGoslJaquhItvK",
       "confirmPassword": "Pa$$w0rd!"
     },
     {
@@ -59,7 +59,7 @@
       "firstName": "Vincent",
       "lastName": "Copeland",
       "email": "katoro@mailinator.com",
-      "password": "Pa$$w0rd!",
+      "password": "$2b$10$nSBIKNPV8wwAFm0CmLlXUek7/TL/MBY5wrCjJne7Kq2Gb8kNtkqfG",
       "confirmPassword": "Pa$$w0rd!"
     },
     {
@@ -67,7 +67,7 @@
       "firstName": "Melyssa",
       "lastName": "Yang",
       "email": "gyfucy@mailinator.com",
-      "password": "Pa$$w0rd!",
+      "password": "$2b$10$fCOMO4.qX.4w9m2tHkF14OCHb6pcxMxDFHQ19oSoRSu2zJIwIyw8K",
       "confirmPassword": "Pa$$w0rd!"
     },
     {
@@ -75,8 +75,15 @@
       "firstName": "Tallulah",
       "lastName": "Rollins",
       "email": "kuzojyge@mailinator.com",
-      "password": "Pa$$w0rd!",
+      "password": "$2b$10$EWTpL4JaFttBcq6DbmQpQ.DGphauom6KeLHA6WStb4KFwBlvbTEBq",
       "confirmPassword": "Pa$$w0rd!"
+    },
+    {
+      "id": "a138",
+      "firstName": "Nehru",
+      "lastName": "Jefferson",
+      "email": "quzu@mailinator.com",
+      "password": "$2b$10$W0Gbuf.UFZ8N9it7poN.S.lGiHXosMFOmlAbRKMYrXD4gmu4CVeBO"
     }
   ]
 }
