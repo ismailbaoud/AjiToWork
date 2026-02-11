@@ -1,13 +1,17 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component } from "@angular/core";
+import { MainLayoutComponent } from "./shared/components/main-layout/main-layout.component";
 
+/**
+ * Root application component
+ * Uses MainLayoutComponent to provide consistent layout structure
+ */
 @Component({
-  selector: 'app-root',
+  selector: "app-root",
   standalone: true,
-  imports: [RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  imports: [MainLayoutComponent],
+  templateUrl: "./app.component.html",
+  styleUrl: "./app.component.css",
 })
 export class AppComponent {
-  title = 'job_finder';
+  title = "JobFinder - Find Your Dream Job";
 }

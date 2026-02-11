@@ -1,9 +1,9 @@
-import { Injectable, signal } from '@angular/core';
+import { Injectable, signal } from "@angular/core";
 
 /**
  * Notification types for different message severities
  */
-export type NotificationType = 'success' | 'error' | 'warning' | 'info';
+export type NotificationType = "success" | "error" | "warning" | "info";
 
 /**
  * Notification message structure
@@ -19,13 +19,13 @@ export interface Notification {
  * Service for managing application notifications and user feedback
  */
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class NotificationService {
   private notifications = signal<Notification[]>([]);
   private idCounter = 0;
 
-  constructor() { }
+  constructor() {}
 
   /**
    * Get all current notifications
@@ -40,7 +40,7 @@ export class NotificationService {
    * @param duration Duration in milliseconds (default: 3000)
    */
   success(message: string, duration: number = 3000): void {
-    this.show(message, 'success', duration);
+    this.show(message, "success", duration);
   }
 
   /**
@@ -49,7 +49,7 @@ export class NotificationService {
    * @param duration Duration in milliseconds (default: 5000)
    */
   error(message: string, duration: number = 5000): void {
-    this.show(message, 'error', duration);
+    this.show(message, "error", duration);
   }
 
   /**
@@ -58,7 +58,7 @@ export class NotificationService {
    * @param duration Duration in milliseconds (default: 4000)
    */
   warning(message: string, duration: number = 4000): void {
-    this.show(message, 'warning', duration);
+    this.show(message, "warning", duration);
   }
 
   /**
@@ -67,7 +67,7 @@ export class NotificationService {
    * @param duration Duration in milliseconds (default: 3000)
    */
   info(message: string, duration: number = 3000): void {
-    this.show(message, 'info', duration);
+    this.show(message, "info", duration);
   }
 
   /**
@@ -76,15 +76,22 @@ export class NotificationService {
    * @param type Notification type
    * @param duration Duration in milliseconds
    */
-  private show(message: string, type: NotificationType, duration: number): void {
+  private show(
+    message: string,
+    type: NotificationType,
+    duration: number,
+  ): void {
     const notification: Notification = {
       id: this.generateId(),
       type,
       message,
-      duration
+      duration,
     };
 
-    this.notifications.update(notifications => [...notifications, notification]);
+    this.notifications.update((notifications) => [
+      ...notifications,
+      notification,
+    ]);
 
     if (duration > 0) {
       setTimeout(() => {
@@ -98,8 +105,8 @@ export class NotificationService {
    * @param id Notification ID to remove
    */
   remove(id: string): void {
-    this.notifications.update(notifications =>
-      notifications.filter(notification => notification.id !== id)
+    this.notifications.update((notifications) =>
+      notifications.filter((notification) => notification.id !== id),
     );
   }
 
@@ -116,5 +123,41 @@ export class NotificationService {
    */
   private generateId(): string {
     return `notification-${++this.idCounter}-${Date.now()}`;
+  }
+
+  /**
+   * Alias for success() method
+   * @param message Success message to display
+   * @param duration Duration in milliseconds (default: 3000)
+   */
+  showSuccess(message: string, duration: number = 3000): void {
+    this.success(message, duration);
+  }
+
+  /**
+   * Alias for error() method
+   * @param message Error message to display
+   * @param duration Duration in milliseconds (default: 5000)
+   */
+  showError(message: string, duration: number = 5000): void {
+    this.error(message, duration);
+  }
+
+  /**
+   * Alias for warning() method
+   * @param message Warning message to display
+   * @param duration Duration in milliseconds (default: 4000)
+   */
+  showWarning(message: string, duration: number = 4000): void {
+    this.warning(message, duration);
+  }
+
+  /**
+   * Alias for info() method
+   * @param message Info message to display
+   * @param duration Duration in milliseconds (default: 3000)
+   */
+  showInfo(message: string, duration: number = 3000): void {
+    this.info(message, duration);
   }
 }

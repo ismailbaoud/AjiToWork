@@ -1,24 +1,25 @@
 import { Component, OnDestroy, signal } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { Router, RouterLink } from "@angular/router";
+import { Router, RouterLink, RouterLinkActive } from "@angular/router";
 import { Subject, takeUntil } from "rxjs";
-import { AuthService } from "../../../auth/services/auth.service";
-import { AuthUser } from "../../../auth/models/user.model";
-import { ROUTES } from "../../../../core/constants/routes";
+import { AuthService } from "../../../features/auth/services/auth.service";
+import { AuthUser } from "../../../features/auth/models/user.model";
+import { ROUTES } from "../../../core/constants/routes";
 
 /**
- * Landing page component - main homepage of the application
+ * Shared header component with navigation and authentication state
  */
 @Component({
-  selector: "app-landing-page",
+  selector: "app-header",
   standalone: true,
-  imports: [CommonModule, RouterLink],
-  templateUrl: "./landing-page.component.html",
-  styleUrl: "./landing-page.component.css",
+  imports: [CommonModule, RouterLink, RouterLinkActive],
+  templateUrl: "./header.component.html",
+  styleUrl: "./header.component.css",
 })
-export class LandingPageComponent implements OnDestroy {
+export class HeaderComponent implements OnDestroy {
   currentUser = signal<AuthUser | null>(null);
   isAuthenticated = signal<boolean>(false);
+  showUserMenu = signal<boolean>(false);
 
   private destroy$ = new Subject<void>();
 
@@ -52,10 +53,25 @@ export class LandingPageComponent implements OnDestroy {
   }
 
   /**
+   * Toggle user menu dropdown
+   */
+  toggleUserMenu(): void {
+    this.showUserMenu.update((value) => !value);
+  }
+
+  /**
+   * Close user menu
+   */
+  closeUserMenu(): void {
+    this.showUserMenu.set(false);
+  }
+
+  /**
    * Handle user logout
    */
   logout(): void {
     this.authService.logout();
+    this.closeUserMenu();
     this.router.navigate([ROUTES.AUTH.LOGIN]);
   }
 
@@ -67,32 +83,47 @@ export class LandingPageComponent implements OnDestroy {
   }
 
   /**
-   * Get current user's first name for display
+   * Get current user's first name
    */
   getUserFirstName(): string {
     return this.currentUser()?.firstName || "";
   }
 
   /**
-   * Navigate to login page
+   * Get user initials for avatar
+   */
+  getUserInitials(): string {
+    const user = this.currentUser();
+    if (!user) return "U";
+    return `${user.firstName.charAt(0)}${user.lastName.charAt(0)}`.toUpperCase();
+  }
+
+  /**
+   * Navigate to profile
+   */
+  navigateToProfile(): void {
+    this.closeUserMenu();
+    this.router.navigate(["/profile/edit"]);
+  }
+
+  /**
+   * Navigate to login
    */
   navigateToLogin(): void {
     this.router.navigate([ROUTES.AUTH.LOGIN]);
   }
 
   /**
-   * Navigate to register page
+   * Navigate to register
    */
   navigateToRegister(): void {
     this.router.navigate([ROUTES.AUTH.REGISTER]);
   }
 
   /**
-   * Handle job search submission
-   * TODO: Implement job search functionality
+   * Navigate to home
    */
-  onSearch(keyword?: string, location?: string): void {
-    // TODO: Implement search logic
-    console.log("Search:", { keyword, location });
+  navigateToHome(): void {
+    this.router.navigate([ROUTES.HOME]);
   }
 }
